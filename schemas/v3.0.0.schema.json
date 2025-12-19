@@ -66,6 +66,9 @@
         "title": {
           "$ref": "#/definitions/WarpText"
         },
+        "ui": {
+          "type": "string"
+        },
         "vars": {
           "additionalProperties": {
             "type": "string"
@@ -92,6 +95,9 @@
         },
         {
           "$ref": "#/definitions/WarpLinkAction"
+        },
+        {
+          "$ref": "#/definitions/WarpMcpAction"
         }
       ]
     },
@@ -279,7 +285,7 @@
       "type": "string"
     },
     "WarpActionType": {
-      "enum": ["transfer", "contract", "query", "collect", "link"],
+      "enum": ["transfer", "contract", "query", "collect", "link", "mcp"],
       "type": "string"
     },
     "WarpAlert": {
@@ -500,6 +506,69 @@
         }
       },
       "required": ["type", "label", "url"],
+      "type": "object"
+    },
+    "WarpMcpAction": {
+      "additionalProperties": false,
+      "properties": {
+        "auto": {
+          "type": "boolean"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/WarpText"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "destination": {
+          "$ref": "#/definitions/WarpMcpDestination"
+        },
+        "inputs": {
+          "items": {
+            "$ref": "#/definitions/WarpActionInput"
+          },
+          "type": "array"
+        },
+        "label": {
+          "$ref": "#/definitions/WarpText"
+        },
+        "next": {
+          "type": "string"
+        },
+        "primary": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/WarpActionType"
+        },
+        "when": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "label"],
+      "type": "object"
+    },
+    "WarpMcpDestination": {
+      "additionalProperties": false,
+      "properties": {
+        "headers": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "tool": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": ["url", "tool"],
       "type": "object"
     },
     "WarpMeta": {
