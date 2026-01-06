@@ -18,7 +18,7 @@
           "type": "string"
         },
         "chain": {
-          "$ref": "#/definitions/WarpChain"
+          "$ref": "#/definitions/WarpChainName"
         },
         "description": {
           "anyOf": [
@@ -98,6 +98,9 @@
         },
         {
           "$ref": "#/definitions/WarpMcpAction"
+        },
+        {
+          "$ref": "#/definitions/WarpPromptAction"
         }
       ]
     },
@@ -285,7 +288,15 @@
       "type": "string"
     },
     "WarpActionType": {
-      "enum": ["transfer", "contract", "query", "collect", "link", "mcp"],
+      "enum": [
+        "transfer",
+        "contract",
+        "query",
+        "collect",
+        "link",
+        "mcp",
+        "prompt"
+      ],
       "type": "string"
     },
     "WarpAlert": {
@@ -316,7 +327,20 @@
       },
       "type": "object"
     },
-    "WarpChain": {
+    "WarpChainName": {
+      "enum": [
+        "multiversx",
+        "vibechain",
+        "sui",
+        "ethereum",
+        "base",
+        "arbitrum",
+        "polygon",
+        "somnia",
+        "fastset",
+        "solana",
+        "near"
+      ],
       "type": "string"
     },
     "WarpCollectAction": {
@@ -575,7 +599,7 @@
       "additionalProperties": false,
       "properties": {
         "chain": {
-          "$ref": "#/definitions/WarpChain"
+          "$ref": "#/definitions/WarpChainName"
         },
         "createdAt": {
           "type": "string"
@@ -601,6 +625,50 @@
         "creator",
         "createdAt"
       ],
+      "type": "object"
+    },
+    "WarpPromptAction": {
+      "additionalProperties": false,
+      "properties": {
+        "auto": {
+          "type": "boolean"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/WarpText"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inputs": {
+          "items": {
+            "$ref": "#/definitions/WarpActionInput"
+          },
+          "type": "array"
+        },
+        "label": {
+          "$ref": "#/definitions/WarpText"
+        },
+        "next": {
+          "type": "string"
+        },
+        "primary": {
+          "type": "boolean"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/WarpActionType"
+        },
+        "when": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "label", "prompt"],
       "type": "object"
     },
     "WarpQueryAction": {
