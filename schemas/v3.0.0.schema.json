@@ -63,6 +63,9 @@
           },
           "type": "array"
         },
+        "schedule": {
+          "$ref": "#/definitions/WarpSchedule"
+        },
         "title": {
           "$ref": "#/definitions/WarpText"
         },
@@ -728,6 +731,17 @@
       "type": "object"
     },
     "WarpResulutionPath": {
+      "type": "string"
+    },
+    "WarpSchedule": {
+      "enum": [
+        "minutely",
+        "hourly",
+        "daily",
+        "weekly",
+        "monthly",
+        "yearly"
+      ],
       "type": "string"
     },
     "WarpText": {
