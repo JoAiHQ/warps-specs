@@ -79,7 +79,13 @@
           "type": "object"
         }
       },
-      "required": ["protocol", "name", "title", "description", "actions"],
+      "required": [
+        "protocol",
+        "name",
+        "title",
+        "description",
+        "actions"
+      ],
       "type": "object"
     },
     "WarpAction": {
@@ -117,7 +123,11 @@
           "type": "string"
         },
         "default": {
-          "type": ["string", "number", "boolean"]
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
         },
         "description": {
           "anyOf": [
@@ -193,7 +203,11 @@
           "$ref": "#/definitions/WarpActionInputType"
         }
       },
-      "required": ["name", "type", "source"],
+      "required": [
+        "name",
+        "type",
+        "source"
+      ],
       "type": "object"
     },
     "WarpActionInputPosition": {
@@ -280,11 +294,19 @@
           "type": "string"
         }
       },
-      "required": ["token", "amount"],
+      "required": [
+        "token",
+        "amount"
+      ],
       "type": "object"
     },
     "WarpActionInputSource": {
-      "enum": ["field", "query", "user:wallet", "hidden"],
+      "enum": [
+        "field",
+        "query",
+        "user:wallet",
+        "hidden"
+      ],
       "type": "string"
     },
     "WarpActionInputType": {
@@ -321,7 +343,12 @@
           "type": "string"
         }
       },
-      "required": ["label", "trigger", "subject", "body"],
+      "required": [
+        "label",
+        "trigger",
+        "subject",
+        "body"
+      ],
       "type": "object"
     },
     "WarpAlerts": {
@@ -333,7 +360,7 @@
     "WarpChainName": {
       "enum": [
         "multiversx",
-        "vibechain",
+        "claws",
         "sui",
         "ethereum",
         "base",
@@ -387,7 +414,10 @@
           "type": "string"
         }
       },
-      "required": ["type", "label"],
+      "required": [
+        "type",
+        "label"
+      ],
       "type": "object"
     },
     "WarpCollectDestination": {
@@ -410,14 +440,21 @@
           "type": "object"
         },
         "method": {
-          "enum": ["GET", "POST", "PUT", "DELETE"],
+          "enum": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+          ],
           "type": "string"
         },
         "url": {
           "type": "string"
         }
       },
-      "required": ["url"],
+      "required": [
+        "url"
+      ],
       "type": "object"
     },
     "WarpContractAction": {
@@ -449,7 +486,10 @@
           ]
         },
         "func": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "gasLimit": {
           "type": "number"
@@ -485,7 +525,11 @@
           "type": "string"
         }
       },
-      "required": ["type", "label", "gasLimit"],
+      "required": [
+        "type",
+        "label",
+        "gasLimit"
+      ],
       "type": "object"
     },
     "WarpI18nText": {
@@ -532,7 +576,11 @@
           "type": "string"
         }
       },
-      "required": ["type", "label", "url"],
+      "required": [
+        "type",
+        "label",
+        "url"
+      ],
       "type": "object"
     },
     "WarpMcpAction": {
@@ -576,7 +624,10 @@
           "type": "string"
         }
       },
-      "required": ["type", "label"],
+      "required": [
+        "type",
+        "label"
+      ],
       "type": "object"
     },
     "WarpMcpDestination": {
@@ -595,7 +646,10 @@
           "type": "string"
         }
       },
-      "required": ["url", "tool"],
+      "required": [
+        "url",
+        "tool"
+      ],
       "type": "object"
     },
     "WarpMeta": {
@@ -617,7 +671,14 @@
           "type": "string"
         },
         "query": {
-          "type": ["string", "null"]
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": [
@@ -629,6 +690,28 @@
         "createdAt"
       ],
       "type": "object"
+    },
+    "WarpPlatformValue<string>": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "linux": {
+              "type": "string"
+            },
+            "macos": {
+              "type": "string"
+            },
+            "windows": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ]
     },
     "WarpPromptAction": {
       "additionalProperties": false,
@@ -662,7 +745,7 @@
           "type": "boolean"
         },
         "prompt": {
-          "type": "string"
+          "$ref": "#/definitions/WarpPlatformValue%3Cstring%3E"
         },
         "type": {
           "$ref": "#/definitions/WarpActionType"
@@ -671,7 +754,11 @@
           "type": "string"
         }
       },
-      "required": ["type", "label", "prompt"],
+      "required": [
+        "type",
+        "label",
+        "prompt"
+      ],
       "type": "object"
     },
     "WarpQueryAction": {
@@ -727,7 +814,10 @@
           "type": "string"
         }
       },
-      "required": ["type", "label"],
+      "required": [
+        "type",
+        "label"
+      ],
       "type": "object"
     },
     "WarpResulutionPath": {
@@ -807,7 +897,10 @@
           "type": "string"
         }
       },
-      "required": ["type", "label"],
+      "required": [
+        "type",
+        "label"
+      ],
       "type": "object"
     },
     "WarpVarPlaceholder": {
