@@ -66,6 +66,12 @@
         "schedule": {
           "$ref": "#/definitions/WarpSchedule"
         },
+        "sections": {
+          "items": {
+            "$ref": "#/definitions/WarpSection"
+          },
+          "type": "array"
+        },
         "title": {
           "$ref": "#/definitions/WarpText"
         },
@@ -833,6 +839,35 @@
         "yearly"
       ],
       "type": "string"
+    },
+    "WarpSection": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/WarpText"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inputs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "$ref": "#/definitions/WarpText"
+        }
+      },
+      "required": [
+        "title",
+        "inputs"
+      ],
+      "type": "object"
     },
     "WarpText": {
       "anyOf": [
