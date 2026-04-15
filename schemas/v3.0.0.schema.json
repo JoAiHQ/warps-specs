@@ -753,6 +753,18 @@
         "primary": {
           "type": "boolean"
         },
+        "expect": {
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "URL pointing to a JSON Schema that the prompt output must conform to"
+            },
+            {
+              "type": "object",
+              "description": "Inline JSON Schema that the prompt output must conform to"
+            }
+          ]
+        },
         "prompt": {
           "$ref": "#/definitions/WarpPlatformValue%3Cstring%3E"
         },
