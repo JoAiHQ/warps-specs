@@ -116,6 +116,9 @@
         },
         {
           "$ref": "#/definitions/WarpPromptAction"
+        },
+        {
+          "$ref": "#/definitions/WarpInlineAction"
         }
       ]
     },
@@ -940,6 +943,41 @@
     },
     "WarpVarPlaceholder": {
       "type": "string"
+    },
+    "WarpInlineAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "inline"
+        },
+        "warp": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "$ref": "#/definitions/WarpText"
+        },
+        "description": {
+          "$ref": "#/definitions/WarpText"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WarpActionInput"
+          }
+        },
+        "auto": {
+          "type": "boolean"
+        },
+        "when": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "warp"
+      ]
     }
   }
 }
