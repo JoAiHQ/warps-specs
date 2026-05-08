@@ -329,7 +329,8 @@
         "collect",
         "link",
         "mcp",
-        "prompt"
+        "prompt",
+        "inline"
       ],
       "type": "string"
     },
@@ -779,6 +780,52 @@
         "type",
         "label",
         "prompt"
+      ],
+      "type": "object"
+    },
+    "WarpInlineAction": {
+      "additionalProperties": false,
+      "properties": {
+        "auto": {
+          "type": "boolean"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/WarpText"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inputs": {
+          "items": {
+            "$ref": "#/definitions/WarpActionInput"
+          },
+          "type": "array"
+        },
+        "label": {
+          "$ref": "#/definitions/WarpText"
+        },
+        "silent": {
+          "type": "boolean"
+        },
+        "type": {
+          "const": "inline",
+          "type": "string"
+        },
+        "warp": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "label",
+        "warp"
       ],
       "type": "object"
     },
