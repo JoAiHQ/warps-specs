@@ -1002,6 +1002,6 @@
     },
     "WarpVarPlaceholder": {
       "type": "string"
-    },
+    }
   }
 }
