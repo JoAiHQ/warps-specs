@@ -43,7 +43,7 @@
           "type": "string"
         },
         "next": {
-          "type": "string"
+          "$ref": "#/definitions/WarpNextConfig"
         },
         "output": {
           "additionalProperties": {
@@ -412,7 +412,7 @@
           "$ref": "#/definitions/WarpText"
         },
         "next": {
-          "type": "string"
+          "$ref": "#/definitions/WarpNextConfig"
         },
         "primary": {
           "type": "boolean"
@@ -514,7 +514,7 @@
           "$ref": "#/definitions/WarpText"
         },
         "next": {
-          "type": "string"
+          "$ref": "#/definitions/WarpNextConfig"
         },
         "primary": {
           "type": "boolean"
@@ -622,7 +622,7 @@
           "$ref": "#/definitions/WarpText"
         },
         "next": {
-          "type": "string"
+          "$ref": "#/definitions/WarpNextConfig"
         },
         "primary": {
           "type": "boolean"
@@ -753,7 +753,7 @@
           "$ref": "#/definitions/WarpText"
         },
         "next": {
-          "type": "string"
+          "$ref": "#/definitions/WarpNextConfig"
         },
         "primary": {
           "type": "boolean"
@@ -874,7 +874,7 @@
           "$ref": "#/definitions/WarpText"
         },
         "next": {
-          "type": "string"
+          "$ref": "#/definitions/WarpNextConfig"
         },
         "primary": {
           "type": "boolean"
@@ -977,7 +977,7 @@
           "$ref": "#/definitions/WarpText"
         },
         "next": {
-          "type": "string"
+          "$ref": "#/definitions/WarpNextConfig"
         },
         "primary": {
           "type": "boolean"
@@ -1006,6 +1006,73 @@
     },
     "WarpVarPlaceholder": {
       "type": "string"
+    },
+    "WarpNextEntry": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "identifier": {
+              "type": "string"
+            },
+            "when": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identifier"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "WarpNextConfig": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/WarpNextEntry"
+        },
+        {
+          "items": {
+            "$ref": "#/definitions/WarpNextEntry"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "error": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/WarpNextEntry"
+                },
+                {
+                  "items": {
+                    "$ref": "#/definitions/WarpNextEntry"
+                  },
+                  "type": "array"
+                }
+              ]
+            },
+            "success": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/WarpNextEntry"
+                },
+                {
+                  "items": {
+                    "$ref": "#/definitions/WarpNextEntry"
+                  },
+                  "type": "array"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      ]
     }
   }
 }
