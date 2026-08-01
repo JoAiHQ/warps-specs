@@ -414,9 +414,6 @@
         "next": {
           "$ref": "#/definitions/WarpNextConfig"
         },
-        "primary": {
-          "type": "boolean"
-        },
         "type": {
           "$ref": "#/definitions/WarpActionType"
         },
@@ -516,9 +513,6 @@
         "next": {
           "$ref": "#/definitions/WarpNextConfig"
         },
-        "primary": {
-          "type": "boolean"
-        },
         "transfers": {
           "items": {
             "type": "string"
@@ -573,9 +567,6 @@
         "label": {
           "$ref": "#/definitions/WarpText"
         },
-        "primary": {
-          "type": "boolean"
-        },
         "type": {
           "$ref": "#/definitions/WarpActionType"
         },
@@ -623,9 +614,6 @@
         },
         "next": {
           "$ref": "#/definitions/WarpNextConfig"
-        },
-        "primary": {
-          "type": "boolean"
         },
         "type": {
           "$ref": "#/definitions/WarpActionType"
@@ -755,9 +743,6 @@
         "next": {
           "$ref": "#/definitions/WarpNextConfig"
         },
-        "primary": {
-          "type": "boolean"
-        },
         "expect": {
           "anyOf": [
             {
@@ -811,6 +796,12 @@
         },
         "label": {
           "$ref": "#/definitions/WarpText"
+        },
+        "output": {
+          "additionalProperties": {
+            "$ref": "#/definitions/WarpResulutionPath"
+          },
+          "type": "object"
         },
         "silent": {
           "type": "boolean"
@@ -875,9 +866,6 @@
         },
         "next": {
           "$ref": "#/definitions/WarpNextConfig"
-        },
-        "primary": {
-          "type": "boolean"
         },
         "type": {
           "$ref": "#/definitions/WarpActionType"
@@ -978,9 +966,6 @@
         },
         "next": {
           "$ref": "#/definitions/WarpNextConfig"
-        },
-        "primary": {
-          "type": "boolean"
         },
         "transfers": {
           "items": {
